@@ -1,7 +1,7 @@
 # CalculatorV1.5
 
 Vad beträffar design paterns så tyckte jag inte någon av dem var nödvändiga till min kalkylator då den är relativt enkel och ej innehåller några klasser som 
-ändå verkar vara designpatterns främsta syfte. Klasser och större projekt.
+verkar vara designpatterns främsta syfte. Klasser och större projekt.
 
 Jag har till en början använt mig av en using static System.Console för att göra koden renare.
 
@@ -27,7 +27,8 @@ När användaren tryckt 1 följt av Enter kommer man in i Kalkylatorn där anvä
 
 Skriv in en valfri beräkning, t.ex 4,6*3,2:
 
-Case1 börjar med att deklarera bokstaven "y" till cariabeln char more.
+
+Case1 börjar med att deklarera bokstaven "y" till variabeln char more.
 Efter det kommer yterliggare en while loop som ska fråga användaren efter varje uträkning om hen vill göra en ny uträkning eller gå tillbaka till menyn.
 
 Användarens input deklareras i en sträng som prövas i en if sats för att bestämma vad användaren valde för operatör. 
@@ -43,9 +44,9 @@ som representrerar resultatet. Efter det skrivs resultat med uträkningen ut til
 
 Uträkningen och resultatet konverteras om med hjälp av metoden toString för att kunna sparas till listan som är sträng baserad. Det sista som händer innan nästa if satst är en Console.Clear som rensar tidigare information från terminalfönstret.
 
-De andra beräkningarna fungerar på samma sätt med undantag för dividerat uträkningen där jag har implementerat en extra if metod för att fånga upp så användaren inte försökar dela siffra 2 med 0.
+De andra beräkningarna fungerar på samma sätt med undantag för dividerat uträkningen där jag har implementerat en extra if metod för att fånga upp så användaren inte försökar dela siffran till höger om / med 0.
 
-När användaren känner sig klar med sina uträkningar kan hen välja siffra 2 följt av Enter för att komma tillbaka till menyn.
+När användaren känner sig klar med sina uträkningar kan hen välja att skriva in 'n' följt av Enter för att komma tillbaka till menyn.
 
  Kalkylator
 --------------
@@ -56,11 +57,25 @@ När användaren känner sig klar med sina uträkningar kan hen välja siffra 2 
 
 Nu kan användaren välja alternativ nummer 2 för att se tidigare resultat och uträkningar. När användaren trycker 2 följt av Enter kommer hen in i case2 av switch casen.
 
-Case2 inleder med en Console.Clear för att snygga till skärmen och skriver sedan ut följande men WriteLine:
+Case2 inleder med en Console.Clear för att snygga till skärmen och skriver sedan ut följande med WriteLine:
 
   Tidigare Resultat
 ---------------------.
 
 Därefter kommer uträkningarna. Listan hämtas med en foreach loop för att på ett enkelt sätt skriva ut hela listan på en gång.
-Användaren uppmans däärefter att Trycka Enter för att komma tillbaka till menyn. Case2 avslutas med en Console.Clear för att bara visa menyn igen.
+Användaren uppmans därefter att Trycka Enter för att komma tillbaka till menyn. Case2 avslutas med en Console.Clear för att bara visa menyn igen.
 
+
+ Kalkylator
+--------------
+
+1. Kalkylator
+2. Tidigare Resultat
+3. Avsluta Programet
+
+Nu kan användaren välja alernativ nummer 3 för att avsluta programet och det innebär att vi kommer in i case3 där följande händer:
+Användaren kommer att uppmanas om att Programmet kommer att avslutas, Tryck Enter för att bekräfta. Därefter inväntas användarens input med en Console.ReadKey.
+Programet avslutas med hjälp av en Enviroment.Exit och där case3 också breakar.
+
+
+En Deafualt är också inlagd som ska meddela använadren om den gjort ett ogltigt val, till exempel skrivit en bokstav istället för en siffra mellan 1-3.
